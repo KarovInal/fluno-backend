@@ -24,9 +24,10 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'pages/homepage'
-  },
+  'POST /trainer/new': 'trainer/create-trainer',
+  'POST /trainer/update': 'trainer/update-trainer',
+  'POST /trainer/delete': 'trainer/delete-trainer',
+  'GET /trainer/:trainerID/': 'trainer/get-trainer',
 
   /***************************************************************************
   *                                                                          *
