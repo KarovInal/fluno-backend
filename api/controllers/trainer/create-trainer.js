@@ -21,7 +21,6 @@ module.exports = {
   fn: async (inputs, exist) => {
     const newTrainer = await Trainers.create(inputs);
 
-    console.log(newTrainer);
     exist.success('OK');
   }
 };

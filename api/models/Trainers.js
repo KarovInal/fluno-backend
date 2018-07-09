@@ -29,7 +29,11 @@ module.exports = {
     city: { type: 'string' },
     phoneNumber: { type: 'string' },
     email: { type: 'string' },
-    age: { type: 'number' }
+    age: { type: 'number' },
+    pupils: {
+      collection: 'Pupils',
+      via: 'trainerID'
+    }
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗

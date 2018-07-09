@@ -24,10 +24,18 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'POST /trainer/new': 'trainer/create-trainer',
-  'POST /trainer/update': 'trainer/update-trainer',
-  'POST /trainer/delete': 'trainer/delete-trainer',
+  // Trainer CRUD
+  'POST /trainer/create':     'trainer/create-trainer',
   'GET /trainer/:trainerID/': 'trainer/get-trainer',
+  'POST /trainer/update':     'trainer/update-trainer',
+  'POST /trainer/delete':     'trainer/delete-trainer',
+  'POST /trainer/get-pupils': 'trainer/get-trainer-pupils',
+  
+  // Pulpils CRUD
+  'POST /pupils/create':   'pupils/create-pupils',
+  'GET  /pupils/:pupilID': 'pupils/get-pupil',
+  'POST /pupils/update':   'pupils/update-pupil',
+  'POST /pupils/delete':   'pupils/delete-pupil'
 
   /***************************************************************************
   *                                                                          *
