@@ -23,7 +23,6 @@ module.exports = {
 
     if (!_.isEmpty(add)) {
       addedParticipants = _.map(add, async (participantID) => {
-        console.log(participantID);
         await Participants.create({
           team: teamID,
           pupil: participantID,

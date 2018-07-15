@@ -23,29 +23,24 @@ module.exports = {
     }).fetch();
     const newProgramID = newProgram.id;
 
+    await Competitions.update({ id: newCompetition.id }).set({ program: newProgramID }).fetch();
+
     const newProgramPosition = await ProgramPosition.create({
       col: 0,
       row: 0,
       program: newProgramID
     }).fetch();
 
-    const newProgramDescriptions = await ProgramDescriptions.create({
+    await ProgramDescriptions.create({
       program: newProgramID,
       row: 0
     }).fetch();
 
-    const newnewProgramKinds = await ProgramKinds.create({
-      tablePosition: newProgramPosition.id,
-      program: newProgramID
+    await ProgramKinds.create({
+      tablePositionID: newProgramPosition.id,
+      parrentProgramID: newProgramID
     }).fetch();
 
-    console.log(
-      newProgram,
-      newProgramPosition,
-      newProgramDescriptions,
-      newnewProgramKinds
-    );
-
-    return exits.success(newCompetition);
+    return exits.success();
   }
 };

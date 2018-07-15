@@ -14,6 +14,7 @@ module.exports.routes = {
 
   // Competitions CRUD
   'POST /competition/create': 'competition/create-competition',
+  'POST /competition/make-draw': 'competition/make-draw',
 
   // Program CRUD
   'GET /program/:programID': 'programs/get-program',

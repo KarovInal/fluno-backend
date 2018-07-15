@@ -6,8 +6,13 @@
  */
 
 module.exports = {
+  description: {
+    drawIndex: 'Порядковый номер жеребьевки'
+  },
+
   attributes: {
-    team: { model: 'Teams' },
+    drawIndex: { type: 'number' },
+    team: { model: 'Teams'},
     pupil: { model: 'Pupils' },
     programPosition: { model: 'ProgramPosition' },
   },
