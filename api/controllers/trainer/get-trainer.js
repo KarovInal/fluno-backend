@@ -9,6 +9,6 @@ module.exports = {
     const { trainerID } = inputs;
     const trainerData = await Trainers.findOne({ id: trainerID });
 
-    exists.success(trainerData)
+    exists.success(trainerData);
   }
 }

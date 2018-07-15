@@ -6,18 +6,7 @@
  */
 
 module.exports = {
-
   attributes: {
-
-    //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
-    //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
-    //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    id: {
-      type: 'number',
-      unique: true,
-      autoIncrement: true,
-      columnName: 'trainerID'
-    },
     firstName: { type: 'string' },
     lastName: { type: 'string' },
     middleName: { type: 'string' },
@@ -33,18 +22,14 @@ module.exports = {
     pupils: {
       collection: 'Pupils',
       via: 'trainerID'
+    },
+    competitions: {
+      collection: 'Competitions',
+      via: 'organizerID'
+    },
+    teams: {
+      collection: 'Teams',
+      via: 'trainer'
     }
-
-    //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
-    //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
-    //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
-
-
-    //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
-    //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
-    //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-
   },
-
 };
-

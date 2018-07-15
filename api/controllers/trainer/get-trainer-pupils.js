@@ -5,7 +5,7 @@ module.exports = {
 
   fn: async (inputs, exits) => {
     const { trainerID } = inputs;
-    const pupilsByTrainer = await Trainers.findOne({ id: trainerID }).populate('pupils');
+    const pupilsByTrainer = await Trainers.findOne({ id: trainerID }).populateAll();
 
     console.log('pupilsByTrainer', pupilsByTrainer);
 

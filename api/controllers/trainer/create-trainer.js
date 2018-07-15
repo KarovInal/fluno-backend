@@ -10,7 +10,7 @@ module.exports = {
     firstName: { type: 'string' },
     lastName: { type: 'string' },
     middleName: { type: 'string' },
-    work_place: { type: 'string' },
+    workPlace: { type: 'string' },
     country: { type: 'string' },
     city: { type: 'string' },
     phoneNumber: { type: 'string' },
@@ -21,6 +21,6 @@ module.exports = {
   fn: async (inputs, exist) => {
     const newTrainer = await Trainers.create(inputs);
 
-    exist.success('OK');
+    exist.success(inputs);
   }
 };
