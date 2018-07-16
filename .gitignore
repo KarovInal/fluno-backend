@@ -17,5 +17,3 @@ lib-cov
 *.log
 *.out
 *.pid
-api/controllers/competition/make-draw.js
-api/models/Results.js

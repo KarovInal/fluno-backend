@@ -1,0 +1,55 @@
+var JSZip = require('jszip');
+var Docxtemplater = require('docxtemplater');
+
+var fs = require('fs');
+var path = require('path');
+
+module.exports = {
+  friendlyName: 'Download results',
+
+  description: 'Скачать word документ результатов.',
+
+  inputs: {
+    programID: { type: 'number' }
+  },
+
+  fn: async (inputs, exits) => {
+    var content = fs
+      .readFileSync(path.resolve('assets/docs/results.docx'), 'binary');
+
+    var zip = new JSZip(content);
+
+    var doc = new Docxtemplater();
+    doc.loadZip(zip);
+
+    //set the templateVariables
+    doc.setData({
+      first_name: 'John',
+      last_name: 'Doe',
+      phone: '0652455478',
+      description: 'New Website'
+    });
+
+    try {
+      // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)
+      doc.render()
+    }
+    catch (error) {
+      var e = {
+        message: error.message,
+        name: error.name,
+        stack: error.stack,
+        properties: error.properties,
+      }
+      console.log(JSON.stringify({ error: e }));
+      // The error thrown here contains additional information when logged with JSON.stringify (it contains a property object).
+      throw error;
+    }
+
+    var buf = doc.getZip().generate({ type: 'nodebuffer' });
+
+    fs.writeFileSync(path.resolve('.tmp/public/docs/output.docx'), buf);
+
+    return exits.success();
+  }
+};

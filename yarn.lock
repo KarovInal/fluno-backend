@@ -1304,6 +1304,12 @@ doctrine@^2.1.0:
   dependencies:
     esutils "^2.0.2"
 
+docxtemplater@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/docxtemplater/-/docxtemplater-3.7.0.tgz#7a72427068aa0c60a9fa3c4404daf72cc1412003"
+  dependencies:
+    xmldom "^0.1.27"
+
 dot-access@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/dot-access/-/dot-access-1.0.0.tgz#a362e5a25906b55bab48a42d101538726061fa68"
@@ -2461,6 +2467,16 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+jszip-utils@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/jszip-utils/-/jszip-utils-0.0.2.tgz#457d5cbca60a1c2e0706e9da2b544e8e7bc50bf8"
+
+jszip@2:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/jszip/-/jszip-2.6.1.tgz#b88f3a7b2e67a2a048152982c7a3756d9c4828f0"
+  dependencies:
+    pako "~1.0.2"
+
 kind-of@^3.0.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
@@ -3058,6 +3074,10 @@ packet-reader@0.2.0:
 pako@~0.2.0:
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/pako/-/pako-0.2.9.tgz#f3f7522f4ef782348da8161bad9ecfd51bf83a75"
+
+pako@~1.0.2:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.6.tgz#0101211baa70c4bca4a0f63f2206e97b7dfaf258"
 
 parasails@^0.7.1:
   version "0.7.4"
@@ -4509,6 +4529,10 @@ ws@~3.3.1:
     async-limiter "~1.0.0"
     safe-buffer "~5.1.0"
     ultron "~1.1.0"
+
+xmldom@^0.1.27:
+  version "0.1.27"
+  resolved "https://registry.yarnpkg.com/xmldom/-/xmldom-0.1.27.tgz#d501f97b3bdb403af8ef9ecc20573187aadac0e9"
 
 xmlhttprequest-ssl@~1.5.4:
   version "1.5.5"
