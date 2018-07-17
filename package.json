@@ -19,9 +19,13 @@
   },
   "devDependencies": {
     "@sailshq/eslint": "^4.19.3",
+    "bcrypt-nodejs": "^0.0.3",
     "docxtemplater": "^3.7.0",
+    "jsonwebtoken": "^8.3.0",
     "jszip": "2",
-    "lodash": "^4.17.10"
+    "lodash": "^4.17.10",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   },
   "scripts": {
     "start": "NODE_ENV=production node app.js",

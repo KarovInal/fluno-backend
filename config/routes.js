@@ -6,6 +6,11 @@ module.exports.routes = {
   'POST /trainer/delete':     'trainer/delete-trainer',
   'POST /trainer/get-pupils': 'trainer/get-trainer-pupils',
   
+  // Auth CRUD
+  'POST /auth/register': 'AuthController.register',
+  'POST /auth/login': 'AuthController.login',
+  'POST /auth/logout': 'AuthController.logout',
+  
   // Pulpils CRUD
   'POST /pupils/create':   'pupils/create-pupils',
   'GET  /pupils/:pupilID': 'pupils/get-pupil',
