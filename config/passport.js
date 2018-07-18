@@ -13,13 +13,13 @@ passport.deserializeUser(function (id, cb) {
 })
 
 passport.use(new LocalStrategy({
-  usernameField: 'username',
-  passportField: 'password'
-}, function (username, password, cb) {
+  usernameField: 'email',
+  passwordField: 'password'
+}, function (email, password, cb) {
 
-  Trainers.findOne({ username: username }).exec(function (err, user) {
+  Trainers.findOne({ email: email }).exec(function (err, user) {
     if (err) return cb(err);
-    if (!user) return cb(null, false, { message: 'Usernaaame not found' });
+    if (!user) return cb(null, false, { message: 'Email not found' });
 
     bcrypt.compare(password, user.password, function (err, res) {
       if (!res) return cb(null, false, { message: 'Invalid Password' });

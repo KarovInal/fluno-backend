@@ -6,12 +6,13 @@ module.exports = {
     firstName: { type: 'string' },
     lastName: { type: 'string' },
     middleName: { type: 'string' },
-    work_place: { type: 'string' },
+    workPlace: { type: 'string' },
     country: { type: 'string' },
     city: { type: 'string' },
     phoneNumber: { type: 'string' },
     email: { type: 'string' },
-    age: { type: 'number' }
+    age: { type: 'number' },
+    photo: { type: 'string' }
   },
 
   fn: async (inputs, exist) => {

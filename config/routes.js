@@ -9,6 +9,7 @@ module.exports.routes = {
   // Auth CRUD
   'POST /auth/register': 'AuthController.register',
   'POST /auth/login': 'AuthController.login',
+  'POST /auth/check-auth': 'AuthController.checkAuth',
   'POST /auth/logout': 'AuthController.logout',
   
   // Pulpils CRUD

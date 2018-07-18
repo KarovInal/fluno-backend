@@ -6,16 +6,18 @@
  */
 
 const passport = require('passport');
+const { LOGIN, REGISTRATION, EVENTS } = sails.config.constants.routes;
 
 module.exports = {
   register: async (req, res) => {
     try{
       const trainer = await Trainers.create(req.body).fetch();
-
-      req.login(trainer, err => {
+      req.login(trainer, async err => {
         if (err) throw Error(err);
 
-        return res.ok();
+        const trainerDataForClient = await Trainers.findOne({ id: trainer.id });
+
+        return res.json(trainerDataForClient);
       });
     } catch(e) {
       sails.log(e);
@@ -24,14 +26,16 @@ module.exports = {
   },
 
   login: async (req, res, next) => {
-    passport.authenticate('local', (err, user, info) => {
+    passport.authenticate('local', (err, trainer, info) => {
       try {
-        if (err || !user) throw Error('Не верный логин или пароль');
-  
-        req.login(user, err => {
+        if (err || !trainer) throw Error('Не верный логин или пароль');
+
+        req.login(trainer, async err => {
           if (err) throw Error('Не верный логин или пароль');
 
-          return res.ok();
+          const trainerDataForClient = await Trainers.findOne({ id: trainer.id });
+
+          return res.json(trainerDataForClient);
         });
       } catch(err) {
         sails.log(err);
@@ -41,8 +45,19 @@ module.exports = {
     })(req, res, next);
   },
 
+  checkAuth: async (req, res) => {
+    console.log('req.user', req.user);
+    if(!req.user) {
+      return res.send(401);
+    }
+
+    const trainerDataForClient = await Trainers.findOne({ id: req.user.id });
+
+    return res.json(trainerDataForClient);
+  },
+
   logout: async (req, res) => {
     req.logout();
-    res.ok('Bi');
+    res.json('Bi');
   }
 };

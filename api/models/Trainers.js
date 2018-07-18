@@ -23,6 +23,7 @@ module.exports = {
     city: { type: 'string' },
     phoneNumber: { type: 'string' },
     age: { type: 'number' },
+    photo: { type: 'string' },
     pupils: {
       collection: 'Pupils',
       via: 'trainerID'
@@ -37,11 +38,11 @@ module.exports = {
     },
   },
 
-  customToJSON() {
+  customToJSON: function () {
     return _.omit(this, ['password'])
   },
 
-  beforeCreate(user, cb) {
+  beforeCreate: function (user, cb) {
     bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(user.password, salt, null, function(err, hash){
         if(err) return cb(err);
