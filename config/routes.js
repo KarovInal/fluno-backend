@@ -1,11 +1,11 @@
 module.exports.routes = {
   // Trainer CRUD
-  'POST /trainer/create':     'trainer/create-trainer',
-  'GET /trainer/:trainerID/': 'trainer/get-trainer',
-  'POST /trainer/update':     'trainer/update-trainer',
-  'POST /trainer/delete':     'trainer/delete-trainer',
-  'POST /trainer/get-pupils': 'trainer/get-trainer-pupils',
-  
+  // 'POST /trainer/create':     'trainer/create-trainer',
+  // 'GET /trainer/:trainerID/': 'trainer/get-trainer',
+  'POST /trainer/update':        'TrainerController.updateTrainer',
+  // 'POST /trainer/delete':     'trainer/delete-trainer',
+  // 'POST /trainer/get-pupils': 'trainer/get-trainer-pupils',
+
   // Auth CRUD
   'POST /auth/register': 'AuthController.register',
   'POST /auth/login': 'AuthController.login',

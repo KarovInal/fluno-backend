@@ -39,7 +39,14 @@ module.exports = {
   },
 
   customToJSON: function () {
-    return _.omit(this, ['password'])
+    const trinerData = _.omit(this, ['password']);
+    const trainerPhoto = _.get(trinerData, 'photo', '');
+    const trainerPhotoURL = trainerPhoto && `${sails.config.custom.host}:${sails.config.port}/avatars/${trainerPhoto}`;
+
+    return {
+      ...trinerData,
+      photo: trainerPhotoURL
+    }
   },
 
   beforeCreate: function (user, cb) {

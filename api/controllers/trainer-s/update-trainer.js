@@ -11,18 +11,17 @@ module.exports = {
     city: { type: 'string' },
     phoneNumber: { type: 'string' },
     email: { type: 'string' },
-    age: { type: 'number' },
-    photo: { type: 'string' }
+    age: { type: 'number' }
   },
 
-  fn: async (inputs, exist) => {
+  fn: async (inputs, exist, { req, res, sails }) => {
     const { trainerID } = inputs;
-
+    console.log('req', req);
     await Trainers
       .update({ id: trainerID })
       .set(omit(inputs, 'trainerID'))
       .fetch();
 
-    exist.success();
+      exist.success();
   }
 };

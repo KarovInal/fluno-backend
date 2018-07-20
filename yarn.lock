@@ -3860,6 +3860,12 @@ sails-hook-orm@^2.0.0-16:
     waterline "^0.13.1-0"
     waterline-utils "^1.0.0"
 
+sails-hook-req-validate@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/sails-hook-req-validate/-/sails-hook-req-validate-1.0.2.tgz#4353ff252eda9f0418110ab5ab3a7ab0a1a916e6"
+  dependencies:
+    validator "^3.26.0"
+
 sails-hook-sockets@^1.4.0:
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/sails-hook-sockets/-/sails-hook-sockets-1.5.3.tgz#6622ba8f9fc6ea09c2376db9fe932dac97caa9ab"
@@ -4485,6 +4491,10 @@ validate-npm-package-license@^3.0.1:
 validator@5.7.0:
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/validator/-/validator-5.7.0.tgz#7a87a58146b695ac486071141c0c49d67da05e5c"
+
+validator@^3.26.0:
+  version "3.43.0"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-3.43.0.tgz#96464b992d4196833d97a194bf40b19ff54bae05"
 
 vary@1.1.2, vary@~1.1.2:
   version "1.1.2"

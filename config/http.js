@@ -9,6 +9,8 @@
  * https://sailsjs.com/config/http
  */
 
+var express = require('express');
+
 module.exports.http = {
 
   /****************************************************************************
@@ -40,6 +42,7 @@ module.exports.http = {
       'router',
       'www',
       'favicon',
+      'trainerData'
     ],
 
 
@@ -67,7 +70,9 @@ module.exports.http = {
       var passport = require('passport');
       var reqResNextFn = passport.session();
       return reqResNextFn;
-    })()
+    })(),
+
+    trainerData: express.static('.tmp'),
   },
 
 };

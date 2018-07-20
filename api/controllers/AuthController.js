@@ -46,7 +46,6 @@ module.exports = {
   },
 
   checkAuth: async (req, res) => {
-    console.log('req.user', req.user);
     if(!req.user) {
       return res.send(401);
     }
