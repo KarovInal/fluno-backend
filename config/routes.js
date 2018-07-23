@@ -13,10 +13,10 @@ module.exports.routes = {
   'POST /auth/logout': 'AuthController.logout',
   
   // Pulpils CRUD
-  'POST /pupils/create':   'pupils/create-pupils',
-  'GET  /pupils/:pupilID': 'pupils/get-pupil',
-  'POST /pupils/update':   'pupils/update-pupil',
-  'POST /pupils/delete':   'pupils/delete-pupil',
+  'POST /pupils/create':            'PupilsController.createPupil',
+  'POST /pupils/get-self-pupils':   'PupilsController.getSelfPupils',
+  'POST /pupils/delete':            'PupilsController.deletePupil',
+  'POST /pupils/update':            'PupilsController.updatePupil',
 
   // Competitions CRUD
   'POST /competition/create': 'competition/create-competition',
@@ -39,5 +39,8 @@ module.exports.routes = {
   'POST /teams/remove-team': 'teams/remove-tream',
 
   // Participants CRUD
-  'POST /participants/update-participants': 'participants/update-participants'
+  'POST /participants/update-participants': 'participants/update-participants',
+
+  // Dictionary
+  'GET /dictionary': 'DictionaryController.getDictionary' 
 };

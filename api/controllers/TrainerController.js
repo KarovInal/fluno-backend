@@ -6,12 +6,11 @@
  */
 
 const path = require('path');
-const _ = require('lodash');
 
 module.exports = {
   updateTrainer: async (req, res) => {
     try {
-      req.validate([
+      const input = req.validate([
         { 'firstName?': 'string' },
         { 'lastName?': 'string' },
         { 'middleName?': 'string' },
@@ -25,7 +24,6 @@ module.exports = {
 
       const user = req.user;
       const userID = _.get(user, 'id');
-      const { ...input } = req.body;
 
       await Trainers
         .update({ id: userID })
@@ -36,22 +34,25 @@ module.exports = {
         req.file('photo').upload({
           saveAs: `${userID}.jpg`,
           dirname: path.resolve(sails.config.appPath, '.tmp/avatars')
-        }, async (err) => {
+        }, async (err, file) => {
           if (err) {
             return reject('Не удалось сохранить фото');
           }
 
-          return resolve();
+          return resolve(file);
         });
       });
 
-      await uploadPromise();
-      await Trainers
-        .update({ id: userID })
-        .set({
-          photo: `${userID}.jpg`
-        })
-        .fetch();
+      const resultPhoto = await uploadPromise();
+
+      if(!_.isEmpty(resultPhoto)) {
+        await Trainers
+          .update({ id: userID })
+          .set({
+            photo: `${userID}.jpg`
+          })
+          .fetch();
+      }
 
       res.ok('Trainers OK');
     } catch (e) {

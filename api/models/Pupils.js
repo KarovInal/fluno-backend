@@ -12,8 +12,20 @@ module.exports = {
     lastName: { type: 'string' },
     middleName: { type: 'string' },
     yearOfBirth: { type: 'number' },
+    avatar: { type: 'string' },
     trainerID: { model: 'Trainers' },
-    rank: { model: 'Ranks' }
+    rank: { model: 'Ranks' },
+  },
+
+  customToJSON: function () {
+    const pupilData = this;
+    const pupilAvatar = _.get(pupilData, 'avatar', '');
+    const pupilAvatarURL = pupilAvatar && `${sails.config.custom.host}:${sails.config.port}/pupils/${pupilAvatar}`;
+
+    return {
+      ...pupilData,
+      avatar: pupilAvatarURL
+    }
   },
 
 };

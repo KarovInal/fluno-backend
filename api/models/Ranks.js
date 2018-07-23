@@ -6,15 +6,12 @@
  */
 
 module.exports = {
-
   attributes: {
-    id: {
-      type: 'number',
-      unique: true,
-      autoIncrement: true,
-      columnName: 'rankID'
+    shortDescription: {
+      type: 'string',
+      required: true
     },
-    rankText: {
+    fullDescription: {
       type: 'string',
       required: true
     }

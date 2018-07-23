@@ -47,7 +47,7 @@ module.exports = {
 
   checkAuth: async (req, res) => {
     if(!req.user) {
-      return res.send(401);
+      return res.sendStatus(401);
     }
 
     const trainerDataForClient = await Trainers.findOne({ id: req.user.id });
