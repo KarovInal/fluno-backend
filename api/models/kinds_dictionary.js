@@ -7,10 +7,18 @@
 
 module.exports = {
   attributes: {
-    kinds: {
-      collection: 'kinds',
-      via: 'kindDictionaryID'
-    },
-    description: { type: 'string' }
+    title: { type: 'string', unique: true },
+    description: { type: 'string' },
+  },
+
+  customToJSON: function () {
+    const kindsData = _.omit(this, ['createdAt', 'updatedAt']);
+    const kindTitle = _.get(kindsData, 'title', '');
+    const kindIconURL = kindTitle && `${sails.config.custom.host}:${sails.config.port}/kinds/${kindTitle}.svg`;
+
+    return {
+      ...kindsData,
+      icon: kindIconURL
+    }
   },
 };

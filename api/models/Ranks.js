@@ -16,4 +16,10 @@ module.exports = {
       required: true
     }
   },
+
+  customToJSON: function () {
+    const ranksData = _.omit(this, ['createdAt', 'updatedAt']);
+
+    return ranksData;
+  },
 };

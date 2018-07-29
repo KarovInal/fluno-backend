@@ -18,7 +18,7 @@ module.exports = {
   },
 
   customToJSON: function () {
-    const pupilData = this;
+    const pupilData = _.omit(this, ['createdAt', 'updatedAt']);
     const pupilAvatar = _.get(pupilData, 'avatar', '');
     const pupilAvatarURL = pupilAvatar && `${sails.config.custom.host}:${sails.config.port}/pupils/${pupilAvatar}`;
 
@@ -27,5 +27,4 @@ module.exports = {
       avatar: pupilAvatarURL
     }
   },
-
 };

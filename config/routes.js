@@ -19,11 +19,12 @@ module.exports.routes = {
   'POST /pupils/update':            'PupilsController.updatePupil',
 
   // Competitions CRUD
-  'POST /competition/create': 'competition/create-competition',
-  'POST /competition/make-draw': 'competition/make-draw',
-  'POST /competition/set-points': 'competition/set-points',
-  'POST /competition/get-points': 'competition/get-points',
-  'POST /competition/download-results': 'competition/download-results',
+  'POST /competition/create': 'CompetitionController.createCompetition',
+  'POST /competitions': 'CompetitionController.getCompetitions',
+  // 'POST /competition/make-draw': 'competition/make-draw',
+  // 'POST /competition/set-points': 'competition/set-points',
+  // 'POST /competition/get-points': 'competition/get-points',
+  // 'POST /competition/download-results': 'competition/download-results',
 
   // Program CRUD
   'GET /program/:programID': 'programs/get-program',

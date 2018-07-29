@@ -1,17 +1,17 @@
 module.exports = {
   inputs: {
-    coverCompetition: { type: 'string', required: true },
-    nameCompetition: { type: 'string', required: true },
-    deadlineCompetition: { type: 'string', required: true },
-    addressCompetition: { type: 'string', required: true },
-    countryCompetition: { type: 'string', required: true },
-    cityCompetition: { type: 'string', required: true },
-    documentCompetition: { type: 'string', required: true },
-    scheduleCompetition: { type: 'json', required: true },
-    contactsCompetition: { type: 'json', required: true },
-    financingIndividual: { type: 'number', required: true },
-    financingGroup: { type: 'number', required: true },
-    organizerID: { type: 'number', required: true },
+    coverCompetition: { type: 'string' },
+    nameCompetition: { type: 'string' },
+    deadlineCompetition: { type: 'string' },
+    addressCompetition: { type: 'string' },
+    countryCompetition: { type: 'string' },
+    cityCompetition: { type: 'string' },
+    documentCompetition: { type: 'string' },
+    scheduleCompetition: { type: 'json' },
+    contactsCompetition: { type: 'json' },
+    financingIndividual: { type: 'number' },
+    financingGroup: { type: 'number' },
+    organizerID: { type: 'number' },
   },
 
   fn: async (inputs, exits) => {
@@ -21,6 +21,7 @@ module.exports = {
       type: 'individual',
       competition: newCompetition.id
     }).fetch();
+
     const newProgramID = newProgram.id;
 
     await Competitions.update({ id: newCompetition.id }).set({ program: newProgramID }).fetch();

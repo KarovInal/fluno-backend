@@ -8,9 +8,11 @@
 module.exports = {
   getDictionary: async (req, res) => {
     const ranks = await Ranks.find();
+    const kinds = await kinds_dictionary.find();
 
     res.send({
-      ranks
+      ranks,
+      kinds
     })
   }
 };
