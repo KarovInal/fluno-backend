@@ -72,7 +72,7 @@ module.exports.http = {
       return reqResNextFn;
     })(),
 
-    trainerData: express.static('.tmp'),
+    trainerData: express.static('.tmp')
   },
 
 };

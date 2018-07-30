@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports.routes = {
   // Trainer CRUD
   // 'POST /trainer/create':     'trainer/create-trainer',
@@ -43,5 +45,11 @@ module.exports.routes = {
   'POST /participants/update-participants': 'participants/update-participants',
 
   // Dictionary
-  'GET /dictionary': 'DictionaryController.getDictionary' 
+  'GET /dictionary': 'DictionaryController.getDictionary',
+  'GET *': {
+    skipAssets: true,
+    fn: function(req, res) {
+      return res.sendFile(path.resolve('assets/index.html'));
+    }
+  },
 };
