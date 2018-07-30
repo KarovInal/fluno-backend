@@ -125,9 +125,9 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cors: {
-      // allowOrigins: [
-      //   'https://example.com',
-      // ]
+      allowOrigins: [
+        'http://fluno.ru'
+      ]
     },
 
   },
@@ -348,7 +348,7 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'https://example.com',
+    baseUrl: 'http://fluno.ru',
     internalEmailAddress: 'support@example.com',
 
     // mailgunDomain: 'mg.example.com',
