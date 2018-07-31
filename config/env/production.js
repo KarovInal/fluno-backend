@@ -301,9 +301,32 @@ module.exports = {
     ***************************************************************************/
     // trustProxy: true,
 
+    order: [
+      'cookieParser',
+      'session',
+      'passportInit',
+      'passportSession',
+      'bodyParser',
+      'compress',
+      'poweredBy',
+      'router',
+      'www',
+      'favicon',
+      'trainerData'
+    ],
+
+    passportInit: (function (){
+      var passport = require('passport');
+      var reqResNextFn = passport.initialize();
+      return reqResNextFn;
+    })(),
+
+    passportSession: (function (){
+      var passport = require('passport');
+      var reqResNextFn = passport.session();
+      return reqResNextFn;
+    })(),
   },
-
-
 
   /**************************************************************************
   *                                                                         *
