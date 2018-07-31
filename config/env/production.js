@@ -378,7 +378,7 @@ module.exports = {
   custom: {
     baseUrl: 'http://fluno.ru',
     internalEmailAddress: 'support@example.com',
-
+    host: 'http://fluno.ru'
     // mailgunDomain: 'mg.example.com',
     // mailgunSecret: 'key-prod_fake_bd32301385130a0bafe030c',
     // stripeSecret: 'sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm',
