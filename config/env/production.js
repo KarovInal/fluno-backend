@@ -126,8 +126,13 @@ module.exports = {
     ***************************************************************************/
     cors: {
       allowOrigins: [
-        'http://fluno.ru'
-      ]
+        'http://fluno.ru',
+        'http://128.199.47.250'
+      ],
+      allRoutes: true,
+      allowRequestHeaders: 'content-type, access-control-allow-origin, authorization',
+      allowAnyOriginWithCredentialsUnsafe: true,
+      allowCredentials: true,
     },
 
   },
